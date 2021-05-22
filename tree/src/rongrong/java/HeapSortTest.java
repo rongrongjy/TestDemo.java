@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class HeapSortTest {
     public static void main(String[] args) {
         int[] arr = {4,6,8,5,9,0,12,-1,56};
-        heapSort(arr);
+        heapSort1(arr);
         System.out.println(Arrays.toString(arr));
     }
     public static void heapSort(int[] arr){
@@ -56,6 +56,41 @@ public class HeapSortTest {
 
         }
         //当for循环结束后，我们已经将i为父节点的树的最大值，放在了最顶（局部）
+        arr[i] = temp;
+    }
+    public static void heapSort1(int[] arr){
+        if (arr == null || arr.length == 0) return;
+        int temp = 0;
+        //第一次建好堆
+        for (int i = arr.length/2-1; i >= 0; --i) {
+
+            buildHeap1(arr,i,arr.length);
+        }
+        //交换对顶元素和末尾元素
+        for (int i = arr.length-1; i > 0; --i) {
+            temp = arr[i];
+            arr[i] = arr[0];
+            arr[0] = temp;
+            buildHeap1(arr,0,i);
+        }
+    }
+    //对每一个非叶子节点进行建堆
+    public static void buildHeap1(int[] arr,int i,int length){
+        if (arr == null || arr.length == 0) return;
+        int temp = arr[i];
+        //将父节点与子节点的值进行比较，进行交换
+        for (int j = 2*i+1; j < length; j = j*2+1) {
+            if (j+1 < length && arr[j] < arr[j+1]){
+                j++;//指向 右节点
+            }
+            //此时的j对应的加点的值即为子节点中最大的那个
+            if (arr[i] < arr[j]){
+                arr[i] = arr[j];//将比父节点大的节点的值赋给父节点
+                i = j;
+            }else {
+                break;
+            }
+        }
         arr[i] = temp;
     }
 }
