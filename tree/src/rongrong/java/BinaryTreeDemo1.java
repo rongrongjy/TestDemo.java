@@ -5,9 +5,9 @@ package rongrong.java;
  * @auther lurongrong
  * @create 2021-04-05 13:57
  */
-public class BinaryTreeDemo{
+public class BinaryTreeDemo1{
     public static void main(String[] args) {
-        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree1 BinaryTree1 = new BinaryTree1();
         HeroNode root = new HeroNode(1, "宋江");
         HeroNode node2 = new HeroNode(2, "吴用");
         HeroNode node3 = new HeroNode(3, "卢俊义");
@@ -16,26 +16,26 @@ public class BinaryTreeDemo{
         root.setLeft(node2);
         root.setRight(node3);
         node3.setRight(node4);
-        binaryTree.setRoot(root);
+        BinaryTree1.setRoot(root);
         //测试
 //
 //        System.out.println("前序遍历");
-//        binaryTree.preOrder();
+//        BinaryTree1.preOrder();
 //        System.out.println("中序遍历");
-//        binaryTree.infixOrder();
+//        BinaryTree1.infixOrder();
 //        System.out.println("后序遍历");
-//        binaryTree.postOrder();
+//        BinaryTree1.postOrder();
 //        System.out.println("前序遍历查找结果显示：");
-//        HeroNode search = binaryTree.infixOrderSearch(4);
+//        HeroNode search = BinaryTree1.infixOrderSearch(4);
 //        System.out.println(search);
         System.out.println("删除前前序遍历：");
-        binaryTree.preOrder();
-        binaryTree.delNode(3);
+        BinaryTree1.preOrder();
+        BinaryTree1.delNode(3);
         System.out.println("删除后前序遍历：");
-        binaryTree.preOrder();
+        BinaryTree1.preOrder();
     }
 }
-class BinaryTree {
+class BinaryTree1{
     private HeroNode root;
 
     public void setRoot(HeroNode root) {
