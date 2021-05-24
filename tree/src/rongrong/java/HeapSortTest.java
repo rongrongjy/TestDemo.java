@@ -80,11 +80,11 @@ public class HeapSortTest {
         int temp = arr[i];
         //将父节点与子节点的值进行比较，进行交换
         for (int j = 2*i+1; j < length; j = j*2+1) {
-            if (j+1 < length && arr[j] < arr[j+1]){
+            if (j+1 < length && arr[j] > arr[j+1]){
                 j++;//指向 右节点
             }
             //此时的j对应的加点的值即为子节点中最大的那个
-            if (arr[i] < arr[j]){
+            if (temp > arr[j]){
                 arr[i] = arr[j];//将比父节点大的节点的值赋给父节点
                 i = j;
             }else {
